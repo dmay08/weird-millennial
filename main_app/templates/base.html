@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weird Millennial</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav>
+        {% if user.is_authenticated %}
+            <span>{{user.username}}</span>
+            <a href="/about">About</a>
+            <a href=#>Cart</a>
+            <a href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+            <a href="/about">About</a>
+            <a href="{% url 'signup' %}">Sign Up</a>
+            <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+#big {
+    background-image: url("https://imgur.com/xkwI9hY.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.big h1{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.8;
+    padding: 300px;
+    color: black;
+    font-size: 25px;
+    font-weight: 100;
+    width: 100%;
+    z-index: 1;
+}
+
+nav a {
+    color: white;
+}
+
+nav {
+    background: #283048;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #859398, #283048);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align:center;
+    height: 5vh;
+    min-height: 47px;
+    padding-top: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
