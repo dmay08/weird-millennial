@@ -1,1 +1,1 @@
-web: gunicorn {weirdmillennial}.wsgi --log-file -
+web: gunicorn weirdmillennial.wsgi --log-file -
