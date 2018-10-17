@@ -12,10 +12,9 @@
     <nav id="navigation">
         {% if user.is_authenticated %} 
             <div class="logo_div">
-                <a href="/">PINK Desert</p>
+                <a href="/">{{user.username}}</a>
             </div>
             <div class="nav_buttons">          
-                <span>{{user.username}}</span>
                 <a href="/about">About</a>
                 <a href="/products">Products</a>
                 <a href="/cart">Cart</a>
@@ -23,7 +22,7 @@
             </div>               
         {% else %}
             <div class="logo_div">
-                <a href="/">PINK Desert</p>
+                <a href="/">{{user.username}}</a>
             </div>
             <div class="nav_buttons">
                 <a href="/about">About</a>

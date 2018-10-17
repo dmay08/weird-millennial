@@ -13,7 +13,16 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
 
+@media screen and (max-width: 539px) {
+    #logo_div{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-left: 0;
+        align-items: flex-start;
+    }
 }
 
 #id_size {
@@ -32,6 +41,13 @@ body, html {
     padding-top: 15%;
     padding-left: 15%;
 }
+
+@media screen and (max-width: 539px) {
+    #logo {
+        padding-left: 0%;
+    }
+}
+
 
 #detail_wrap {
     display: flex;
@@ -72,9 +88,25 @@ body, html {
    
 }
 
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: helvetica;
+    padding-top: 30px;
+}
+
+#login_body {
+    background-image: url("https://imgur.com/xkwI9hY.jpg");
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .nav_buttons {
     width: 45%;
-    min-width: 320px;
+    min-width: 220px;
     padding-top: 16px;
     display: flex;
     justify-content: space-evenly;
@@ -100,6 +132,16 @@ nav {
     padding-left: 20px;
     padding-top: 20px;
     text-align: center;
+}
+
+
+@media screen and (max-width: 539px) {
+    .product_wrap {
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        text-align: center;
+    }
 }
 
 a:-webkit-any-link {
