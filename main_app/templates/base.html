@@ -9,16 +9,27 @@
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 </head>
 <body>
-    <nav>
-        {% if user.is_authenticated %}
-            <span>{{user.username}}</span>
-            <a href="/about">About</a>
-            <a href=#>Cart</a>
-            <a href="{% url 'logout' %}">Log Out</a>
+    <nav id="navigation">
+        {% if user.is_authenticated %} 
+            <div class="logo_div">
+                <a href="/">PINK Desert</p>
+            </div>
+            <div class="nav_buttons">          
+                <span>{{user.username}}</span>
+                <a href="/about">About</a>
+                <a href="/products">Products</a>
+                <a href="/cart">Cart</a>
+                <a href="{% url 'logout' %}">Log Out</a> 
+            </div>               
         {% else %}
-            <a href="/about">About</a>
-            <a href="{% url 'signup' %}">Sign Up</a>
-            <a href="{% url 'login' %}">Log In</a>
+            <div class="logo_div">
+                <a href="/">PINK Desert</p>
+            </div>
+            <div class="nav_buttons">
+                <a href="/about">About</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+                <a href="{% url 'login' %}">Log In</a>
+            </div>
         {% endif %}
     </nav>
     <main>

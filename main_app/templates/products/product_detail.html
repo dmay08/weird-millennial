@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div id="detail_wrap">
+    <div id="pic_and_add">
+        <img src="{{product.image_url}}" height="600">
+        <div id="add_button">
+            <a class="button" href="/add_to_cart/{{product.id}}">Add to Cart</a>
+        </div>
+    </div>
+    <div id="detail_text">
+        <h1>{{product.name}}</h1>
+        <h5>$29.99</h5>
+        <form action="{% url 'add_to_cart' product.id %}"method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn" value="Add to Cart">
+        </form>
 
-<div><img src="{{product.image_url}}"></div>
-<p>Name: {{product.name}}</p>
-<p>Price: {{product.price}}</p>
-<a class="button" href="/add_to_cart/{{product.id}}">Add to Cart</a>
-   
+       
+    </div>
+</div>   
 
 
 

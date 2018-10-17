@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div>
+    {{cart.date}}
+</div>
 
-{{cart.date}}
+<div>
+    {% for line_item in cart.lineitem_set.all %}
+        <div>
+            <p>{{line_item.product.name}}</p>
+            <p>{{line_item.product.price}}</p>
+            <p>{{line_item.quantity}}</p>
+            <p>{{line_item.size}}</p>
+        </div>
+    {% endfor %}
+</div>
+
 
 {% endblock %}

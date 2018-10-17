@@ -9,41 +9,111 @@ body, html {
 
 #big {
     background-image: url("https://imgur.com/xkwI9hY.jpg");
-    height: 100vh;
+    height: 95vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
 }
 
-.big h1{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.8;
-    padding: 300px;
-    color: black;
-    font-size: 25px;
-    font-weight: 100;
-    width: 100%;
-    z-index: 1;
+#id_size {
+    font-family: helvetica;
+}
+
+#id_quantity {
+    font-family: helvetica;
+}
+
+#logo {
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    min-width: 300px;
+    padding-top: 15%;
+    padding-left: 15%;
+}
+
+#detail_wrap {
+    display: flex;
+}
+
+#pic_and_add {
+    flex-direction: column;
+}
+
+#add_button {
+    margin-left: 220px;
+    height: 40px;
+    width: 150px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #859398;
+}
+
+/* @font-face {
+    font-family: myFirstFont;
+    src: url(chlakh_demo.ttf);
+} */
+
+#navigation {
+    /* font-family: myFirstFont; */
+    font-family: Helvetica;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo_div {
+    width: 55%;
+    min-width: 100px;
+    height: 5vh;
+    padding-top: 16px;
+    display: flex;
+    justify-content: flex-start;
+   
+}
+
+.nav_buttons {
+    width: 45%;
+    min-width: 320px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 nav a {
     color: white;
+    font-family: Helvetica;
 }
 
 nav {
-    background: #283048;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #859398, #283048);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #859398, #283048); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    text-align:center;
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
     height: 5vh;
     min-height: 47px;
-    padding-top: 14px;
     padding-left: 10px;
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
+}
+
+.product_wrap {
+    display: inline-block;
+    padding-left: 20px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+    font-family: Helvetica;
+    color: black;
+}
+
+footer {
+    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+    text-align: center;
+    height: 50px;
+}
+
+p label {
+    font-family: helvetica;
 }
