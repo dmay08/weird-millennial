@@ -22,21 +22,33 @@ class ProductList(ListView):
     # inside of template will be a 'product_list'
     template_name = 'products/product_list.html'
 
-def add_to_cart(request, product_id): # product_id = URLS.PY <___>
+def add_to_cart(request, product_id): # product_id = URLS.PY <int:___>
     # get order
     order = Order.cart(request.user)
-    
     line_item, created = LineItem.objects.get_or_create(order=order, product_id=product_id)
-    print(line_item.size)
     if not created:
         line_item.quantity += int(request.POST['quantity'])
-        line_item.size = request.POST['size']
         line_item.save()
     return redirect('/cart')
 
 def cart_detail(request):
     cart = Order.cart(request.user)
     return render(request, 'cart.html', {'cart': cart})
+
+# increase quantity button (cart)
+def increase_qty(request, line_item_id): # line_item_id = needs to match the (already written) url in URLS.PY <int:___>
+    item = LineItem.objects.get(id=line_item_id) # have to go through objects to query (search)
+        #'get' allows me to get a single object (row) out of the database
+        # we want to 'query' like we do in JS to find the object(?) then name it to alter it in the function
+    item.quantity += 1 # quantity is a 'field' in LineItem model - so I can access it here
+    item.save()
+    return redirect('/cart')
+
+def decrease_qty(request, line_item_id): # 2 parameters for the function; like function (a, b)
+    item = LineItem.objects.get(id=line_item_id) # join table doing its job here too
+    item.quantity -= 1 # aka LineItem.product.quantity (b/c Product model has 'quantity' & LineItem has 'Product's' foreign key)
+    item.save()
+    return redirect('/cart')
 
 def index(request):
     products = Product.objects.all() # this allows me to view product list on index.html

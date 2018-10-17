@@ -2,14 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User 
 from datetime import date
 
-SIZES = (
-    ('XS', 'Extra Small'),
-    ('S', 'Small'),
-    ('M', 'Medium'),
-    ('L', 'Large'),
-    ('XL', 'Extra Large'),
-)
-
 class Product(models.Model):
     name = models.CharField(max_length=100)
     image_url = models.CharField(max_length=200, default='https://i.imgur.com/4kKLl9G.png')
@@ -33,11 +25,10 @@ class Order(models.Model):
 
 class LineItem(models.Model):
     quantity = models.IntegerField(default=1)
-    size = models.CharField(
-        max_length=2,
-        choices=SIZES,
-        default=SIZES[3][0]
-    )
     # foreign key info: (also imported 'Product' above)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE )
+    def get_ext_price(self):
+        return self.quantity * self.product.price
+    class Meta:
+        ordering = ['id']

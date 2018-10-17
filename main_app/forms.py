@@ -8,4 +8,4 @@ class LoginForm(Form):
 class LineItemForm(ModelForm):
     class Meta:
         model = LineItem
-        fields = ['size', 'quantity']
+        fields = ['quantity']

@@ -11,4 +11,6 @@ urlpatterns = [
     path('products/<int:product_id>', views.product_detail, name='product_detail'), #have to use 'pk' for DetailView
     path('add_to_cart/<int:product_id>', views.add_to_cart, name='add_to_cart'),
     path('cart/', views.cart_detail, name='cart_detail'),
+    path('increase_qty/<int:line_item_id>', views.increase_qty, name='increase_qty'), # use <int:___> for URLS.py
+    path('decrease_qty/<int:line_item_id>', views.decrease_qty, name='decrease_qty'),
 ]

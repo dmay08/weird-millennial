@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div>
+<!-- <div>
     {{cart.date}}
+</div> -->
+<div id="cart_wrap">
+    <table class="cart_table" style="width:100%">
+        <tr id="cart_top">
+            <th id="product_th" colspan="2">Product</th> 
+            <th>Price</th>
+            <th class="qty_items">Quantity</th>
+            <th>Total</th>
+        </tr>
+        {% for line_item in cart.lineitem_set.all %}
+        <tr class="cart_items">
+            <td class="cart_img"><img src="{{line_item.product.image_url}}"></td>
+            <td>{{line_item.product.name}}</td> <!--join table doing its job-->
+            <td>${{line_item.product.price}}</td>
+            <td id="item_qty" class="qty_items">
+                <a class="change_qty" href="{% url 'decrease_qty' line_item.id %}">-</a>
+                {{line_item.quantity}}
+                <a class="change_qty" href="{% url 'increase_qty' line_item.id %}">+</a>
+                    <!--3rd param above = argument for the param (line_item_id) in URLS.py-->
+            </td>
+            <td>${{line_item.get_ext_price|floatformat:2}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </div>
-
-<div>
-    {% for line_item in cart.lineitem_set.all %}
-        <div>
-            <p>{{line_item.product.name}}</p>
-            <p>{{line_item.product.price}}</p>
-            <p>{{line_item.quantity}}</p>
-            <p>{{line_item.size}}</p>
-        </div>
-    {% endfor %}
-</div>
-
 
 {% endblock %}
