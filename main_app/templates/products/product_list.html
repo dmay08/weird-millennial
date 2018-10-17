@@ -4,7 +4,7 @@
 {% for product in product_list %} 
     <div class="product_wrap">
         <a href="{% url 'product_detail' product.id %}"> <!--'product_detail' has to match "name='product_detail'" in URLS.PY-->
-            <div><img src="{{product.image_url}}" height="300"></div>
+            <div><img src="{{product.image_url}}" height="300" width="300"></div>
             <p class="product_text">Name: {{product.name}}</p>
             <p class="product_text">Price: {{product.price}}</p>
         </a>

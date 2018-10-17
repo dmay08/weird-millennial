@@ -21,6 +21,14 @@ main {
     background-size: cover;
 }
 
+#big_about {
+    background-image: url("https://i.imgur.com/kj1VnzJ.jpg");
+    height: 95vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
 .cart_items .change_qty {
     display: inline-block;
     font-size: 24px;
@@ -30,16 +38,6 @@ main {
     height: 32px;
     margin: 0 15px;
     text-align: center;
-}
-
-@media screen and (max-width: 539px) {
-    #logo_div{
-        display: flex;
-        justify-content: center;
-        padding-top: 30px;
-        padding-left: 0;
-        align-items: flex-start;
-    }
 }
 
 #cart_wrap {
@@ -98,13 +96,6 @@ table.cart_table td img {
     padding-top: 15%;
     padding-left: 15%;
 }
-
-@media screen and (max-width: 539px) {
-    #logo {
-        padding-left: 0%;
-    }
-}
-
 
 #detail_wrap {
     display: flex;
@@ -191,16 +182,6 @@ nav {
     text-align: center;
 }
 
-
-@media screen and (max-width: 539px) {
-    .product_wrap {
-        display: flex;
-        padding-left: 0px;
-        justify-content: center;
-        text-align: center;
-    }
-}
-
 a:-webkit-any-link {
     text-decoration: none;
     font-family: Helvetica;
@@ -219,4 +200,29 @@ p label {
 
 .qty_items {
     text-align: center;
+}
+
+@media screen and (max-width: 539px) {
+    #logo {
+        padding-left: 0%;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    .product_wrap {
+        display: flex;
+        padding-left: 0px;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    #logo_div{
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-left: 0;
+        align-items: flex-start;
+    }
 }

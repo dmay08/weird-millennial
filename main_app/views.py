@@ -46,8 +46,11 @@ def increase_qty(request, line_item_id): # line_item_id = needs to match the (al
 
 def decrease_qty(request, line_item_id): # 2 parameters for the function; like function (a, b)
     item = LineItem.objects.get(id=line_item_id) # join table doing its job here too
-    item.quantity -= 1 # aka LineItem.product.quantity (b/c Product model has 'quantity' & LineItem has 'Product's' foreign key)
-    item.save()
+    if item.quantity <= 1:
+        item.delete()
+    else:
+        item.quantity -= 1 # aka LineItem.product.quantity (b/c Product model has 'quantity' & LineItem has 'Product's' foreign key)
+        item.save()
     return redirect('/cart')
 
 def index(request):
