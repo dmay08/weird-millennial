@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% for product in product_list %} 
-    <div class="product_wrap">
-        <a href="{% url 'product_detail' product.id %}"> <!--'product_detail' has to match "name='product_detail'" in URLS.PY-->
-            <div><img src="{{product.image_url}}" height="300" width="300"></div>
-            <p class="product_text">Name: {{product.name}}</p>
-            <p class="product_text">Price: {{product.price}}</p>
-        </a>
-    </div>
-{% endfor %}    
+<div class="grey_background">
+    {% for product in product_list %} 
+        <div class="product_wrap">
+            <a href="{% url 'product_detail' product.id %}"> <!--'product_detail' has to match "name='product_detail'" in URLS.PY-->
+                <div><img class="images" src="{{product.image_url}}"></div>
+                <p class="product_text">Name: {{product.name}}</p>
+                <p class="product_text">Price: {{product.price}}</p>
+            </a>
+        </div>
+    {% endfor %} 
+</div>   
 
 
 

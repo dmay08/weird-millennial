@@ -2,15 +2,30 @@
     box-sizing: border-box;
 }
 
-
-
 body, html {
     margin: 0;
     height: 100%;
-}
+    font-family: 'Mandali', sans-serif;}
 
 main {
     margin: 0;
+}
+
+#about_me {
+    height: 200px;
+    width: 400px;
+    background-color: rgb(241 241 241);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, .5);
+}
+
+#about_wrap {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding: 100px;
 }
 
 #big {
@@ -19,11 +34,17 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: 0 20px;
+}
+
+#big h2 {
+    padding-top: 20px;
+    margin: 0;
 }
 
 #big_about {
     background-image: url("https://i.imgur.com/kj1VnzJ.jpg");
-    height: 95vh;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
@@ -31,17 +52,18 @@ main {
 
 .cart_items .change_qty {
     display: inline-block;
-    font-size: 24px;
-    border: 1px solid grey;
-    background-color: grey;
+    background-color: rgb(183 183 183);
     width: 32px;
     height: 32px;
     margin: 0 15px;
     text-align: center;
+    border-radius: 4px;
 }
 
 #cart_wrap {
+    height: 100vh;
     margin: 0 30px;
+    font-family: 'Mandali', sans-serif;
 }
 
 .cart_items {
@@ -50,6 +72,10 @@ main {
 
 #cart_top {
     text-align: left;
+}
+
+table.th {
+    /* font-weight: bold; */
 }
 
 td.cart_img {
@@ -76,16 +102,29 @@ table.cart_table td img {
     height: 150px;
 }
 
+table.cart_table tr:last-child td:first-child {
+    text-align: right;
+    font-weight: bold;
+}
+table.cart_table tr:last-child td {
+    height: 100px;
+}
+
+table.cart_table td:last-child, table.cart_table th:last-child {
+    text-align: right;
+    padding-right: 45px;
+}
+
 #product_th {
     text-align: center;
 }
 
 #id_size {
-    font-family: helvetica;
+    font-family: 'Mandali', sans-serif;
 }
 
 #id_quantity {
-    font-family: helvetica;
+    font-family: 'Mandali', sans-serif;
 }
 
 #logo {
@@ -99,52 +138,58 @@ table.cart_table td img {
 
 #detail_wrap {
     display: flex;
+    justify-content: space-evenly;
+    padding-top: 10%;
+}
+
+#detail_text {
+    padding-top: 30px;
 }
 
 #pic_and_add {
-    flex-direction: column;
+    text-align: center;
+    height: 100vh;
 }
 
-#add_button {
-    margin-left: 220px;
+#pic_and_add img{
+    width: 500px;
+}
+
+.div_button {
     height: 40px;
     width: 150px;
     text-align: center;
-    padding-top: 10px;
-    background-color: #859398;
+    padding-top: 3px;
+    background-color: rgb(183 183 183);
+    margin-top: 30px;
+    border-radius: 4px;
 }
 
-/* @font-face {
-    font-family: myFirstFont;
-    src: url(chlakh_demo.ttf);
-} */
+.button_wrap {
+    display: flex;
+    justify-content: center;
+}
+.grey_background {
+    background-color: rgb(247 247 247);
+}
 
 #navigation {
-    /* font-family: myFirstFont; */
-    font-family: Helvetica;
+    font-family: 'Mandali', sans-serif;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo_div {
     width: 55%;
-    min-width: 100px;
-    height: 5vh;
-    padding-top: 16px;
-    display: flex;
-    justify-content: flex-start;
-   
+    min-width: 110px;
 }
 
 #login {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: helvetica;
-    padding-top: 30px;
+    padding: 0 20px;
 }
 
-#login_body {
+.aloe_background {
     background-image: url("https://imgur.com/xkwI9hY.jpg");
     height: 95vh;
     background-position: center;
@@ -155,21 +200,20 @@ table.cart_table td img {
 .nav_buttons {
     width: 45%;
     min-width: 220px;
-    padding-top: 16px;
     display: flex;
     justify-content: space-evenly;
 }
 
 nav a {
     color: white;
-    font-family: Helvetica;
+    font-family: 'Mandali', sans-serif;
 }
 
 nav {
-    background-image: linear-gradient(to right, #d7d2cc 0%, #304352 100%);
+    background-image: linear-gradient(to right, #d7d2cc 0%, #4d6374 100%);
     height: 5vh;
     min-height: 47px;
-    padding-left: 10px;
+    padding-left: 3%;
     padding-right: 10px;
     display: flex;
     justify-content: space-between;
@@ -182,9 +226,21 @@ nav {
     text-align: center;
 }
 
+.product_wrap img {
+    height: 300px;
+    width: 300px;
+}
+
+#success {
+    text-align: center;
+    font-family: 'Mandali', sans-serif;
+    font-size: 50px;
+    padding-top: 15%;
+}
+
 a:-webkit-any-link {
     text-decoration: none;
-    font-family: Helvetica;
+    font-family: 'Mandali', sans-serif;
     color: black;
 }
 
@@ -195,20 +251,20 @@ footer {
 }
 
 p label {
-    font-family: helvetica;
+    font-family: 'Mandali', sans-serif;
 }
 
 .qty_items {
     text-align: center;
 }
 
-@media screen and (max-width: 539px) {
+@media screen and (max-width: 540px) {
     #logo {
         padding-left: 0%;
     }
 }
 
-@media screen and (max-width: 539px) {
+@media screen and (max-width: 540px) {
     .product_wrap {
         display: flex;
         padding-left: 0px;
@@ -217,7 +273,7 @@ p label {
     }
 }
 
-@media screen and (max-width: 539px) {
+@media screen and (max-width: 540px) {
     #logo_div{
         display: flex;
         justify-content: center;
@@ -226,3 +282,38 @@ p label {
         align-items: flex-start;
     }
 }
+
+@media screen and (max-width: 540px) {
+    #success {
+        text-align: center;
+        font-family: 'Mandali', sans-serif;
+        font-size: 50px;
+        padding-top: 30%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #detail_wrap {
+        display: flex;
+        flex-direction: column;
+    }
+} 
+
+@media screen and (max-width: 540px) {
+    #detail_text {
+        padding: 0 20%;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #pic_and_add {
+        text-align: center;
+        padding-top: 20px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    #pic_and_add img{
+        width: 300px;
+    }
+}    

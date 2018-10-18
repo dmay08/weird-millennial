@@ -13,4 +13,5 @@ urlpatterns = [
     path('cart/', views.cart_detail, name='cart_detail'),
     path('increase_qty/<int:line_item_id>', views.increase_qty, name='increase_qty'), # use <int:___> for URLS.py
     path('decrease_qty/<int:line_item_id>', views.decrease_qty, name='decrease_qty'),
+    path('checkout/', views.checkout, name='checkout')
 ]

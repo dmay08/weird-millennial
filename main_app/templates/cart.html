@@ -1,32 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<!-- <div>
-    {{cart.date}}
-</div> -->
-<div id="cart_wrap">
-    <table class="cart_table" style="width:100%">
-        <tr id="cart_top">
-            <th id="product_th" colspan="2">Product</th> 
-            <th>Price</th>
-            <th class="qty_items">Quantity</th>
-            <th>Total</th>
-        </tr>
-        {% for line_item in cart.lineitem_set.all %}
-        <tr class="cart_items">
-            <td class="cart_img"><img src="{{line_item.product.image_url}}"></td>
-            <td>{{line_item.product.name}}</td> <!--join table doing its job-->
-            <td>${{line_item.product.price}}</td>
-            <td id="item_qty" class="qty_items">
-                <a class="change_qty" href="{% url 'decrease_qty' line_item.id %}">-</a>
-                {{line_item.quantity}}
-                <a class="change_qty" href="{% url 'increase_qty' line_item.id %}">+</a>
-                    <!--3rd param above = argument for the param (line_item_id) in URLS.py-->
-            </td>
-            <td>${{line_item.get_ext_price|floatformat:2}}</td>
-        </tr>
-        {% endfor %}
-    </table>
+<div class="grey_background">
+    <div id="cart_wrap" class="grey_background">
+        <table class="cart_table" style="width:100%">
+            <tr id="cart_top">
+                <th id="product_th" colspan="2">Product</th> 
+                <th>Price</th>
+                <th class="qty_items">Quantity</th>
+                <th>Total</th>
+            </tr>
+            {% for line_item in cart.lineitem_set.all %}
+            <tr class="cart_items">
+                <td class="cart_img"><img src="{{line_item.product.image_url}}"></td>
+                <td>{{line_item.product.name}}</td> <!--join table doing its job-->
+                <td>${{line_item.product.price}}</td>
+                <td id="item_qty" class="qty_items">
+                    <a class="change_qty" href="{% url 'decrease_qty' line_item.id %}">-</a>
+                    {{line_item.quantity}}
+                    <a class="change_qty" href="{% url 'increase_qty' line_item.id %}">+</a>
+                        <!--3rd param above = argument for the param (line_item_id) in URLS.py-->
+                </td>
+                <td>${{line_item.get_ext_price|floatformat:2}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4">Order Total:</td>
+                <td>{{total}}</td>
+            </tr>
+        </table>
+        <div class="button_wrap">
+            <div class="div_button">
+                <a class="button" href="{% url 'checkout' %}">Checkout</a>
+            </div>
+        </div>  
+    </div>
 </div>
 
 {% endblock %}

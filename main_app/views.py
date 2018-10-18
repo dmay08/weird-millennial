@@ -5,8 +5,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import ListView, DetailView
 from .models import Product, Order, LineItem
+from django.db.models import Sum, F, FloatField
+from django.contrib.auth.decorators import login_required
 
 # Create your views here. 
+class ProductList(ListView):
+    model = Product
+    # inside of template will be a 'product_list'
+    template_name = 'products/product_list.html'
 
 # def PRODUCT_DETAIL = IMPORTANT FOR ASSESSMENT 2 (and "def add_to_cart")
 def product_detail(request, product_id):
@@ -16,12 +22,8 @@ def product_detail(request, product_id):
         'product': product,
         'form': line_item_form # in "product_detail.html" > use "form"!!
     })
-    
-class ProductList(ListView):
-    model = Product
-    # inside of template will be a 'product_list'
-    template_name = 'products/product_list.html'
 
+@login_required
 def add_to_cart(request, product_id): # product_id = URLS.PY <int:___>
     # get order
     order = Order.cart(request.user)
@@ -31,9 +33,20 @@ def add_to_cart(request, product_id): # product_id = URLS.PY <int:___>
         line_item.save()
     return redirect('/cart')
 
+def checkout(request):
+    cart = Order.cart(request.user)
+    cart.paid = True
+    cart.save()
+    return render(request, 'checkout.html')
+
 def cart_detail(request):
     cart = Order.cart(request.user)
-    return render(request, 'cart.html', {'cart': cart})
+    result = LineItem.objects.filter(order=cart).aggregate(total=Sum(F('quantity') * F('product__price'), output_field=FloatField())) # the order here is 'cart' (line above) (& 'order' is a field in "LineItem" model)
+        # 'filter' = grabs line items of ONLY this 'Order' (vs. 'all' would grab EVERY lineitem every made)
+    return render(request, 'cart.html', {
+        'cart': cart, # 'cart' = key name (i choose name here) ; this is a PYTHON dictionary
+        'total': result['total'] # result comes from above (in method) and ['total'] comes from blue total (same line above)
+    }) 
 
 # increase quantity button (cart)
 def increase_qty(request, line_item_id): # line_item_id = needs to match the (already written) url in URLS.PY <int:___>
