@@ -9,14 +9,13 @@ _________________________________________________________________
 ![Landing Page](https://i.imgur.com/5n5w4kg.png)
 ![Product List](https://i.imgur.com/w4Ppk1H.png)
 ![Cart](https://i.imgur.com/VlqztQS.png)
-![About](https://i.imgur.com/BitHSpS.jpg)
 
 ## Technologies Used
 _________________________________________________________________
 * HTML (for template pages)
 * CSS (for styling)
-* Python (for model building, url mapping, view functions, etc.)
-* Django (for server-side code)
+* Python (for models, views, urls, etc. )
+* Django (for full-stack development)
 
 ## Getting Started
 _________________________________________________________________
