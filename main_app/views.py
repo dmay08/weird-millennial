@@ -28,9 +28,11 @@ def add_to_cart(request, product_id): # product_id = URLS.PY <int:___>
     # get order
     order = Order.cart(request.user)
     line_item, created = LineItem.objects.get_or_create(order=order, product_id=product_id)
-    if not created:
+    if created:
+        line_item.quantity = int(request.POST['quantity'])
+    else:
         line_item.quantity += int(request.POST['quantity'])
-        line_item.save()
+    line_item.save()    
     return redirect('/cart')
 
 def checkout(request):
